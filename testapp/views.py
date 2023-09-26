@@ -24,3 +24,12 @@ def post_example(request):
                 'headers': dict(request.headers),
                 'body': request.body.decode()}}
     return JsonResponse(response, safe=False, json_dumps_params={'indent': 2})
+
+
+def gallery(request):
+    return render(request, 'testapp/gallery.html')
+
+
+def gallery_photo(request, photo):
+    context = {'photo': photo}
+    return render(request, 'testapp/gallery_photo.html', context)
